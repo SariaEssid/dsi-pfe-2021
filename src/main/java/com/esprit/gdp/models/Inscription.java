@@ -40,9 +40,9 @@ public class Inscription implements Serializable {
 	@JoinColumn(name="ENCARANT_PEDA", referencedColumnName = "ID_ENS", updatable=false, insertable=false, nullable=false)
 	private Teacher encadrantPedagogique;
 	
-//	@ManyToOne
-//	@JoinColumn(name="CODE_CL", referencedColumnName = "CODE_CL", updatable=false, insertable=false, nullable=false)
-//    public Classe classe;
+	@ManyToOne
+	@JoinColumn(name="CODE_CL", referencedColumnName = "CODE_CL", updatable=false, insertable=false, nullable=false)
+    public SaisonClasse saisonClasse;
 	
 	@Column(name="CODE_CL")
 	private String codeCl;
