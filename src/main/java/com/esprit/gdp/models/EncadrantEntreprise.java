@@ -7,11 +7,14 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.TableGenerator;
 
 
 @Entity
@@ -21,7 +24,9 @@ public class EncadrantEntreprise implements Serializable
 
 	private static final long serialVersionUID = 7839226972740647617L;
 	
+	@TableGenerator(name = "Idt_encadrantEntreprise", table = "IDS_GEN_NEXT_VALUE", pkColumnName = "SEQUENCE_NAME", valueColumnName = "NEXT_VAL", pkColumnValue = "TBL_ENCADRANT_ENTREPRISE", initialValue = 0, allocationSize = 1)
 	@Id
+	@GeneratedValue(strategy = GenerationType.TABLE, generator = "Idt_encadrantEntreprise")
 	@Column(name = "ID_ENCADRANT", length = 5)
 	private String idEncadrant;
 	
